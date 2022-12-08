@@ -12,7 +12,7 @@ import cv2
 import imghdr
 
 
-data_dir = 'ImageClassification\data'
+data_dir = 'data'
 #check for images extentions
 image_exts = ['jpeg', 'jpg','bmp','png']
 
@@ -33,7 +33,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 #loading data
-data = tf.keras.utils.image_dataset_from_directory("ImageClassification\data")
+data = tf.keras.utils.image_dataset_from_directory("data")
 #
 data_iterator = data.as_numpy_iterator()
 
@@ -48,7 +48,6 @@ for idx,img in enumerate(batch[0][:4]):
 data = data.map(lambda x,y:(x/255.0,y))
 
 data.as_numpy_iterator().next()
-
 train_size = int(len(data)*.7)
 val_size = int(len(data)*.2)
 test_size = int(len(data)*.1)
@@ -119,7 +118,7 @@ for batch in test.as_numpy_iterator():
 print(pre.result(),re.result(),acc.result())
 
 
-img = cv2.imread("ImageClassification\8iAb9k4aT.jpg")
+img = cv2.imread("8iAb9k4aT.jpg")
 plt.imshow(img)
 plt.show()
 
