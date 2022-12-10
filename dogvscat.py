@@ -45,12 +45,12 @@ for f,l in training_data:
     x.append(f)
     y.append(l)
 
-X = np.array(x).reshape(-1, img_size, img_size, 1)
+x = np.array(x).reshape(-1, img_size, img_size, 1)
 
 import pickle
 
 pickle_out = open("X.pickle","wb")
-pickle.dump(X, pickle_out)
+pickle.dump(x, pickle_out)
 pickle_out.close()
 
 pickle_out = open("y.pickle","wb")
